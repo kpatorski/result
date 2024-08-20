@@ -1,0 +1,50 @@
+plugins {
+    id 'groovy'
+    id 'java'
+    id 'maven-publish'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(8)
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    sourceCompatibility = '8'
+    targetCompatibility = '8'
+}
+
+tasks.withType(GroovyCompile).configureEach {
+    sourceCompatibility = '8'
+    targetCompatibility = '8'
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+    google()
+}
+
+dependencies {
+    implementation 'org.apache.groovy:groovy:4.0.21'
+    testImplementation platform("org.spockframework:spock-bom:2.4-M1-groovy-4.0")
+    testImplementation "org.spockframework:spock-core"
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId 'com.result'
+            artifactId 'result'
+            version '1.0.0'
+
+            from components.java
+        }
+    }
+}
+

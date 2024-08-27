@@ -1,4 +1,5 @@
-package com.result
+package com.goodcode.online.result
+
 
 import spock.lang.Specification
 

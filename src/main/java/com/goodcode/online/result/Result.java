@@ -1,4 +1,4 @@
-package com.result;
+package com.goodcode.online.result;
 
 import java.util.function.Consumer;
 import java.util.function.Function;

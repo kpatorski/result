@@ -39,7 +39,7 @@ tasks.named('test') {
 publishing {
     publications {
         maven(MavenPublication) {
-            groupId 'com.result'
+            groupId 'online.goodcode'
             artifactId 'result'
             version '1.0.0'
 
